@@ -12,12 +12,13 @@ ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
 # 작업 디렉토리 설정
 WORKDIR /app
 
+# DIR_NAME= 레퍼지토리 네임
 ARG BRANCH_NAME=data_engineers
 ARG DIR_NAME=cocolabhubs
 
 # Clone the Git repository. Here we dynamically specify the repository name using the variable defined earlier.
 # RUN git clone -b ${BRANCH_NAME} https://github.com/gocolab/co_templates ${DIR_NAME}
-RUN git clone https://github.com/gocolab/co_templates ${DIR_NAME}
+RUN git clone https://github.com/SeokcheonMoon/cocolabhubs ${DIR_NAME}
 
 # Changes the working directory to /app/${REPO_NAME}. This uses the variable to dynamically set the directory path.
 WORKDIR /app/${DIR_NAME}
@@ -25,5 +26,5 @@ WORKDIR /app/${DIR_NAME}
 # RUN pip install --no-cache-dir -r ./requirements.txt
 RUN pip install -r ./requirements.txt
 
-RUN rm -rf .git
+# RUN rm -rf .git
 
